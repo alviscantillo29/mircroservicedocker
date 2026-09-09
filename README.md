@@ -2,6 +2,20 @@
 
 Aplicación full-stack que **crea y consume un servicio web REST**.
 
+## 🌐 Desplegado en producción
+
+| Componente | URL |
+|-----------|-----|
+| **Frontend (Angular)** | https://frontend-five-rose-76.vercel.app |
+| **Backend / servicio web (Node)** | https://ufps-backend.onrender.com |
+| **Repositorio** | https://github.com/carlosalejandroqm/ufps-servicios-web |
+
+> Frontend en **Vercel**, backend en **Render** (free tier). El backend en Render
+> "duerme" tras ~15 min de inactividad: la primera petición puede tardar ~30–50 s
+> en despertar; luego responde normal. `CORS_ORIGIN=*` (auth por token Bearer).
+> Nota: en el free tier de Render el disco es efímero, así que los datos de SQLite
+> se reinician en cada redeploy/despertar.
+
 - **Backend (servicio web):** Node.js + Express + SQLite (`better-sqlite3`) + JWT.
 - **Frontend (consumidor):** Angular 18 (componentes standalone).
 
