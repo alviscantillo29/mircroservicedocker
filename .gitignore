@@ -1,0 +1,21 @@
+# Dependencias
+**/node_modules/
+
+# Variables de entorno
+**/.env
+
+# Base de datos local SQLite
+backend/data.sqlite
+backend/data.sqlite-shm
+backend/data.sqlite-wal
+
+# Builds
+frontend/dist/
+frontend/.angular/
+
+# Sistema
+.DS_Store
+*.log
+
+# PDF de la tarea (no se sube)
+*.pdf
