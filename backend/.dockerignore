@@ -1,0 +1,9 @@
+target/
+.mvn/
+.gradle/
+.idea/
+.git/
+*.log
+Dockerfile
+.dockerignore
+HELP.md

@@ -16,7 +16,7 @@ Aplicación full-stack que **crea y consume un servicio web REST**.
 > Nota: en el free tier de Render el disco es efímero, así que los datos de SQLite
 > se reinician en cada redeploy/despertar.
 
-- **Backend (servicio web):** Node.js + Express + SQLite (`better-sqlite3`) + JWT.
+- **Backend (servicio web):** Java 21 + Spring Boot 3.4.3 + Spring Data JPA + MySQL + Spring Security & JWT + Gradle / Maven.
 - **Frontend (consumidor):** Angular 18 (componentes standalone).
 
 ## Funcionalidades

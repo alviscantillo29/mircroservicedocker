@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <module name="backend.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.ufps.service.ServiceApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+  <configuration default="false" name="Backend (Application)" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.ufps.service.ServiceApplication" />
+    <module name="backend.main" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

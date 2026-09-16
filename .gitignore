@@ -12,11 +12,25 @@ backend/data.sqlite-wal
 # Builds
 frontend/dist/
 frontend/.angular/
+backend/build/
+backend/target/
+backend/.gradle/
+**/build/
+**/target/
+**/.gradle/
+
+# IDE
+.idea/workspace.xml
+.idea/shelf/
+.idea/tasks.xml
+*.iml
+.vscode/
 
 # Sistema
 .DS_Store
 *.log
 
-# PDF de la tarea (no se sube)
+# Documentos
 *.pdf
 *.pptx
+

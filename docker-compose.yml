@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  # 1. Servicio de Base de Datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: ufps-mysql-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: microservice
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - ufps-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. Microservicio Backend (Spring Boot 3.4.3 REST API)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ufps-backend-microservice
+    restart: unless-stopped
+    ports:
+      - "3050:3050"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/microservice?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: rootpassword
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+      JWT_SECRET: dev-secret-cambiar-ufps-servicios-web-key-256bits
+      JWT_EXPIRATION: "7200000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - ufps-network
+
+  # 3. Servidor Frontend Web (Angular 18 con Nginx)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ufps-frontend-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - ufps-network
+
+networks:
+  ufps-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local

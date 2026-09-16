@@ -1,4 +1,3 @@
-// URL base del servicio web (backend Node/Express).
-// Producción: backend desplegado en Render.
-// Para desarrollo local, cambia por 'http://localhost:3000/api'.
-export const API_URL = 'https://ufps-backend.onrender.com/api';
+// URL base del servicio web (backend Spring Boot local).
+export const API_URL = 'http://localhost:3050/api';
+
